@@ -1,13 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponseServerError, HttpResponseNotFound
+from django.views import View
+
+from tours.data import tours
+from tours.data import departures
 
 
 def MainView(request):
-    return render(request, "tours/index.html")
+    return render(request, "tours/index.html", {'var': tours[1]['title']})
 
 
-def TourView(request, id):
-    return render(request, "tours/tour.html")
+def TourView(request, _id):
+    stars=int(tours[_id]['stars'])*'★'
+    return render(request, "tours/tour.html", {'title': tours[_id]['title'], 'description': tours[_id]['description'],
+                                               'departure': departures[tours[_id]['departure']], 'picture': tours[_id]['picture'],
+                                               'price': tours[_id]['price'], 'stars': stars,
+                                               'country': tours[_id]['country'], 'nights': tours[_id]['nights']})
 
 
 def DepartureView(request, departure):
