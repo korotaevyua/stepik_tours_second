@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Stepik Travel</title>
+  <title>{{ title }}</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
@@ -39,80 +39,80 @@
     <!-- HERO -->
     <section class="jumbotron text-center mt-4" style="background: url('https://place-hold.it/1600x300'); background-position: center center">
       <h1 class="display-4">Всякие туры</h1>
-      <p class="lead">Для тех, кого отвлекают дома</p>
-      <p class="mt-5 w-50 mx-auto">Лучшие направления,где никто не будет вам мешать сидеть на берегу и изучать программирование, дизайн, разработку игр и управление продуктами</p>
+      <p class="lead">{{ subtitle }}</p>
+      <p class="mt-5 w-50 mx-auto">{{ description }}</p>
     </section>
     <!-- CARDS -->
     <div class="row mt-5">
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
-             <img class="card-img-top embed-responsive-item" src="https://place-hold.it/300x200" alt="" />
+             <img class="{card-img-top embed-responsive-item" } src={{ picture_1 }} alt="" />
           </div>          
           <div class="card-body">
-            <h2 class="h5 card-title">{{ var }}</h2>
+            <h2 class="h5 card-title">{{ country_1 }}: {{ name_1 }}</h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ n_1 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
-             <img class="card-img-top embed-responsive-item" src="https://place-hold.it/300x200" alt="" />
+             <img class="card-img-top embed-responsive-item" src={{ picture_2 }} alt="" />
           </div>          
           <div class="card-body">
-            <h2 class="h5 card-title">Hotel title</h2>
+            <h2 class="h5 card-title">{{ country_2 }}: {{ name_2 }}</h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ n_2 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
-             <img class="card-img-top embed-responsive-item" src="https://place-hold.it/300x200" alt="" />
+             <img class="card-img-top embed-responsive-item" src={{ picture_3 }} alt="" />
           </div>          
           <div class="card-body">
-            <h2 class="h5 card-title">Hotel title</h2>
+            <h2 class="h5 card-title">{{ country_3 }}: {{ name_3 }}</h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ n_3 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
-             <img class="card-img-top embed-responsive-item" src="https://place-hold.it/300x200" alt="" />
+             <img class="card-img-top embed-responsive-item" src={{ picture_4 }} alt="" />
           </div>          
           <div class="card-body">
-            <h2 class="h5 card-title">Hotel title</h2>
+            <h2 class="h5 card-title">{{ country_4 }}: {{ name_4 }}</h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ n_4 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
-             <img class="card-img-top embed-responsive-item" src="https://place-hold.it/300x200" alt="" />
+             <img class="card-img-top embed-responsive-item" src={{ picture_5 }} alt="" />
           </div>          
           <div class="card-body">
-            <h2 class="h5 card-title">Hotel title</h2>
+            <h2 class="h5 card-title">{{ country_5 }}: {{ name_5 }}</h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ n_5 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
-             <img class="card-img-top embed-responsive-item" src="https://place-hold.it/300x200" alt="" />
+             <img class="card-img-top embed-responsive-item" src={{ picture_6 }} alt="" />
           </div>          
           <div class="card-body">
-            <h2 class="h5 card-title">Hotel title</h2>
+            <h2 class="h5 card-title">{{ country_6 }}: {{ name_6 }}</h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Подробнее</a>
+            <a href="/tour/{{ n_6 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>

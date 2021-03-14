@@ -1,19 +1,36 @@
 from django.shortcuts import render
 from django.http import HttpResponseServerError, HttpResponseNotFound
-from django.views import View
 
+from tours.data import title
+from tours.data import subtitle
+from tours.data import description
 from tours.data import tours
 from tours.data import departures
 
+import random
+
 
 def MainView(request):
-    return render(request, "tours/index.html", {'var': tours[1]['title']})
+    random_list = list(range(1, 17, 1))
+    random.shuffle(random_list)
+    context = {'title': title, 'subtitle': subtitle, 'description': description}
+    for i in range(1, 7, 1):
+        country_name = 'country_' + str(i)
+        name = 'name_' + str(i)
+        number = 'n_' + str(i)
+        pic = 'picture_' + str(i)
+        context[country_name] = tours[random_list[i]]['country']
+        context[name] = tours[random_list[i]]['title']
+        context[number] = random_list[i]
+        context[pic] = tours[random_list[i]]['picture']
+    return render(request, "tours/index.html", context=context)
 
 
 def TourView(request, _id):
-    stars=int(tours[_id]['stars'])*'★'
+    stars = int(tours[_id]['stars']) * '★'
     return render(request, "tours/tour.html", {'title': tours[_id]['title'], 'description': tours[_id]['description'],
-                                               'departure': departures[tours[_id]['departure']], 'picture': tours[_id]['picture'],
+                                               'departure': departures[tours[_id]['departure']],
+                                               'picture': tours[_id]['picture'],
                                                'price': tours[_id]['price'], 'stars': stars,
                                                'country': tours[_id]['country'], 'nights': tours[_id]['nights']})
 
