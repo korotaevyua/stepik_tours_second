@@ -36,7 +36,21 @@ def TourView(request, _id):
 
 
 def DepartureView(request, departure):
-    return render(request, "tours/departure.html")
+    context = {'departure': departures[departure]}
+    counter = 0
+    prices = []
+    nights = []
+    for tour in tours.keys():
+        if tours[tour]['departure'] == departure:
+            counter = counter + 1
+            prices.append(tours[tour]['price'])
+            nights.append(tours[tour]['nights'])
+    context['counter'] = counter
+    context['min_price'] = min(prices)
+    context['max_price'] = max(prices)
+    context['min_nights'] = min(nights)
+    context['max_nights'] = max(nights)
+    return render(request, "tours/departure.html", context=context)
 
 
 def custom_handler404(request, exception):
