@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
+{% extends 'tours/base.html' %}
+{% block content %}
 <body>
-  <header class="container mt-3">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Stepik Travel</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/departure/msk">Из Москвы</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/spb">Из Петербурга</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/nsk">Из Новосибирска</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/ekb">Из Екатеринбурга</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/departure/kazan">Из Казани</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
   <main class="container mt-3">
     <!-- HERO -->
     <section class="jumbotron text-center mt-4" style="background: url('https://place-hold.it/1600x300'); background-position: center center">
@@ -51,7 +17,7 @@
           </div>          
           <div class="card-body">
             <h2 class="h5 card-title">{{ country_1 }}: {{ name_1 }}</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text"> Всего за {{ cost_1 }}! </p>
             <a href="/tour/{{ n_1 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
@@ -63,7 +29,7 @@
           </div>          
           <div class="card-body">
             <h2 class="h5 card-title">{{ country_2 }}: {{ name_2 }}</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Всего за {{ cost_2 }}!</p>
             <a href="/tour/{{ n_2 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
@@ -75,7 +41,7 @@
           </div>          
           <div class="card-body">
             <h2 class="h5 card-title">{{ country_3 }}: {{ name_3 }}</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Всего за {{ cost_3 }}!</p>
             <a href="/tour/{{ n_3 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
@@ -87,7 +53,7 @@
           </div>          
           <div class="card-body">
             <h2 class="h5 card-title">{{ country_4 }}: {{ name_4 }}</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Всего за {{ cost_4 }}!</p>
             <a href="/tour/{{ n_4 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
@@ -99,7 +65,7 @@
           </div>          
           <div class="card-body">
             <h2 class="h5 card-title">{{ country_5 }}: {{ name_5 }}</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Всего за {{ cost_5 }}!</p>
             <a href="/tour/{{ n_5 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
@@ -111,15 +77,12 @@
           </div>          
           <div class="card-body">
             <h2 class="h5 card-title">{{ country_6 }}: {{ name_6 }}</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Всего за {{ cost_6 }}!</p>
             <a href="/tour/{{ n_6 }}" class="btn btn-sm btn-primary">Подробнее</a>
           </div>
         </div>
       </div>
     </div>
-  </main>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+{% endblock %}

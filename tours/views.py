@@ -1,16 +1,16 @@
-from django.shortcuts import render
-from django.http import HttpResponseServerError, HttpResponseNotFound
-
-from tours.data import title
-from tours.data import subtitle
-from tours.data import description
-from tours.data import tours
-from tours.data import departures
-
 import random
 
+from django.http import HttpResponseServerError, HttpResponseNotFound
+from django.shortcuts import render
 
-def MainView(request):
+from tours.data import departures
+from tours.data import description
+from tours.data import subtitle
+from tours.data import title
+from tours.data import tours
+
+
+def main_view(request):
     random_list = list(range(1, 17, 1))
     random.shuffle(random_list)
     context = {'title': title, 'subtitle': subtitle, 'description': description}
@@ -19,14 +19,16 @@ def MainView(request):
         name = 'name_' + str(i)
         number = 'n_' + str(i)
         pic = 'picture_' + str(i)
+        cost = 'cost_' + str(i)
         context[country_name] = tours[random_list[i]]['country']
         context[name] = tours[random_list[i]]['title']
         context[number] = random_list[i]
         context[pic] = tours[random_list[i]]['picture']
+        context[cost] = tours[random_list[i]]['price']
     return render(request, "tours/index.html", context=context)
 
 
-def TourView(request, _id):
+def tour_view(request, _id):
     stars = int(tours[_id]['stars']) * '★'
     return render(request, "tours/tour.html", {'title': tours[_id]['title'], 'description': tours[_id]['description'],
                                                'departure': departures[tours[_id]['departure']],
@@ -35,21 +37,24 @@ def TourView(request, _id):
                                                'country': tours[_id]['country'], 'nights': tours[_id]['nights']})
 
 
-def DepartureView(request, departure):
+def departure_view(request, departure):
     context = {'departure': departures[departure]}
-    counter = 0
     prices = []
     nights = []
-    for tour in tours.keys():
-        if tours[tour]['departure'] == departure:
-            counter = counter + 1
-            prices.append(tours[tour]['price'])
-            nights.append(tours[tour]['nights'])
-    context['counter'] = counter
+    needed_tours = []
+    paths = []
+    for tour_id, tour in tours.items():
+        if tour['departure'] == departure:
+            prices.append(tour['price'])
+            nights.append(tour['nights'])
+            needed_tours.append([tour, tour_id])
+            paths.append(tour_id)
     context['min_price'] = min(prices)
     context['max_price'] = max(prices)
     context['min_nights'] = min(nights)
     context['max_nights'] = max(nights)
+    context['tours'] = needed_tours
+    context['paths'] = paths
     return render(request, "tours/departure.html", context=context)
 
 
