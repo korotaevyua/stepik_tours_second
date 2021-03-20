@@ -1,6 +1,5 @@
 {% extends 'tours/base.html' %}
 {% block content %}
-<body>
   <main class="container mt-3">
     <h1 class="display-5 mt-4">Летим {{ departure }}</h1>
     <p class="mb-4">Найдено {{ counter }} туров, от {{ min_price }} до {{ max_price }} и от {{ min_nights }} ночей до {{ max_nights }} ночей</p>
@@ -19,6 +18,4 @@
         </div>
       {% endfor %}
     </div>
-</body>
-</html>
 {% endblock %}
